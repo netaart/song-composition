@@ -4,7 +4,7 @@ The style description is the production brief for the song2 model. It says what 
 
 ## What the request carries
 
-The request contract is the model declaration in `@neta-art/generation` 0.2.2, at `node_modules/@neta-art/generation/models/song2.yaml`.
+The request contract is the model declaration in `@neta-art/generation`, at `node_modules/@neta-art/generation/models/song2.yaml`. This page was checked against 0.2.2; when the installed version says otherwise, the declaration wins.
 
 The request has two required text blocks and one optional text block:
 
