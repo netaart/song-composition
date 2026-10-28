@@ -8,8 +8,8 @@ Name the symptom in one sentence. Then name the musical cause. Then choose the s
 
 | Symptom | Likely cause | Smallest change |
 | --- | --- | --- |
-| The vocal is too high | Key too high, or the melody sits above the range | Transpose the whole score down; do not rewrite the tune |
-| The vocal is too low | Key too low, or the verse is in the basement | Transpose up a step or move the verse up an octave |
+| The vocal is too high | Key too high, or the melody sits above the range | Transpose down with the editor's `transpose` command; keep the melody's shape and intervals |
+| The vocal is too low | Key too low, or the verse is in the basement | Transpose up with the editor's `transpose` or `setKey`; keep the shape and intervals |
 | The words are rushed | Too many syllables for the phrase or the tempo | Cut syllables, split the line, or slow the tempo |
 | The words drag | Too few syllables, or the tempo is too slow | Add a note or a melisma, or raise the tempo |
 | The chorus does not lift | Same range, same chord rhythm, same texture | Raise the chorus register, quicken the chords, open the drums |
@@ -31,8 +31,8 @@ If two symptoms point in different directions, fix the one the listener hears fi
 Change one thing, then listen. If you change the key, the tempo, the words and the style at once, you cannot tell which change helped.
 
 - One musical change per regeneration is ideal.
-- A melody change and a lyric change can travel together only when the syllable count changes.
-- A tempo change and a style change can travel together when the style names the tempo.
+- A lyric change that changes a line's syllable count needs a matching melody change for that phrase. Otherwise change one thing, unless the brief asks for both.
+- A tempo change and a style change go together only when the brief asks for both; the style must name the new tempo.
 - Keep a note of the previous version, so you can compare.
 
 ## What to keep
@@ -60,16 +60,9 @@ If the score was generated and is the original, keep it. Make the edit in a new 
 
 ## Regenerate with the score
 
-Send the score with the request, along with the final style description and lyrics. Keep the seed and the score mode when you have them, and ask for the score back. The exact keys depend on the model declaration:
+Use the request contract in [style description](style-description.md#what-the-request-carries). Before you regenerate from an edited score, confirm the declaration takes the `abc` role. If it does not, stop and report; do not regenerate without the score.
 
-- style description in the `prompt` role;
-- lyrics in the `lyrics` role;
-- score in the `abc` role;
-- `abc_mode` for the score mode;
-- `seed`;
-- `return_abc` to ask for the score.
-
-If the model returns no score, report that. Do not write a score from memory and present it as the model's output.
+Send the score with the final style description and lyrics. Keep the seed and score mode when you have them, and ask for the score back. If you asked for the score and the model returns none, report that. Do not write a score from memory and present it as the model's output.
 
 If the model returns both an input and an output score, keep them apart. The input is what you sent; the output is the new song's score. Compare the output with the input, not with your memory of it.
 
@@ -82,7 +75,7 @@ Check the returned score against the old one, bar by bar:
 - Does the melody keep the phrase shape, or did it move?
 - Do the chords still fit the strong beats?
 - Does each lyric line still match its phrase?
-- Is the vocal still inside 60–82?
+- Is the lead inside the written range (60–82)?
 - Did the change you asked for actually happen?
 
 Then listen for the symptom. If it is unchanged, the change did not reach the request. Check that the new score was the one sent.
@@ -113,6 +106,7 @@ A short report is enough. "Bars 5–8: lowered the melody a third and kept the w
 - Does the score still read with zero diagnostics?
 - Do the words still match the phrases?
 - Is the style description still consistent with the score?
+- Does the declaration take the `abc` role?
 - Are you keeping the seed and the score mode?
 - Will you be able to tell whether the change worked?
 

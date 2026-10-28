@@ -13,19 +13,19 @@ Choose the key for the voice, not for an instrument shape. A key that is easy on
 | Am, Em, Dm | Serious, inward | Minor verses and choruses |
 | F#m, C#m, G#m | Tense, bright | A high-energy chorus |
 
-The same melody can move between a major key and its relative minor. C major and A minor share the same notes, but the tonic changes the feel. Use the relative minor for a verse and the relative major for a chorus when you want a lift without a key change.
+The same melody can move between a major key and its relative minor. C major and A minor share the same notes, but the tonic changes the feel. Use the relative minor for a verse and the relative major for a chorus when you want a lift. The key signature stays the same, but the tonic changes: for example, if the verse is in A minor and the chorus in C, write `K:C` in both voices at the chorus start (B3, V4, W7), and name C in the style description.
 
-If the melody sits outside the singable range, transpose the whole score. Do not rewrite the tune in a new octave and keep the old words, because the stresses will move.
+If the melody sits outside the singable range, transpose the whole score with the editor's `transpose` or `setKey` command (see the editor skill); keep the melody's shape and intervals.
 
 ## Modulation
 
 A modulation is a key change. It is a strong effect; one per song is usually enough.
 
 - **Up a whole step for the final chorus.** The most common pop lift. Prepare it with the dominant of the new key in the bar before.
-- **Relative major for the chorus.** A soft lift that does not change the key signature.
+- **Relative major for the chorus.** A soft lift. The key signature stays the same, but the tonic changes; write the new key in both voices (B3, V4, W7), and name it in the style description.
 - **Parallel major for the last chorus.** A minor verse turns major for the ending. Use it when the words turn from doubt to hope.
 
-Write the key change with the dialect's change rules (H9, W7), in both voices.
+Write any key change with the dialect's change rules (B3, V4, W7), in both voices.
 
 ## Tempo
 
@@ -40,6 +40,8 @@ Tempo is part of the style, not a number to copy. The same song at 90 and 110 BP
 | 130–160 BPM | Fast | Punk, drum and bass, fast folk |
 
 The tempo value counts quarter notes. In 4/4 that is the beat. In 3/4 it is also the beat. In 6/8 the felt beat is the dotted quarter, which is one and a half quarter notes. If you want a 6/8 song to feel like 120 dotted-quarter beats per minute, write a quarter-note tempo of 180.
+
+Music can use any tempo, but a new `Q:` value in a song2 score must be 20–400 BPM (`RULES.md` H5).
 
 Pick the tempo with the lyric density. A line of sixteen syllables in four bars at 60 BPM is a very long line. The same line at 120 BPM is comfortable.
 
@@ -86,7 +88,7 @@ The key, tempo and meter live in the score header. The dialect's `WRITING.md` gi
 | [chorus-eight-bars.abc](../assets/chorus-eight-bars.abc) | C major | 120 BPM | 4/4 | 8 |
 | [ballad-eight-bars-3-4.abc](../assets/ballad-eight-bars-3-4.abc) | A minor | 66 BPM | 3/4 | 8 |
 
-The verse is mid-tempo and sits in G, a bright key that is easy for a guitar. The chorus is faster and in C, a bright key that suits a lifted chorus; the lift comes from tempo and range, not from a key change. The ballad is slow and in A minor, so the same eight bars feel heavier and more intimate.
+The three examples are separate scores, not a verse–chorus pair. The verse is in G at 92 BPM, the chorus in C at 120 BPM, and the ballad in A minor at 66 BPM. To show a lift, write one song with a verse and a chorus.
 
 ## Check the frame
 

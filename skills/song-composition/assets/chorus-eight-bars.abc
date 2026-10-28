@@ -8,10 +8,10 @@ V: Ins clef=treble name="Ins Melody" snm="Inst."
 K:C
 % chorus
 V: Vocal
-"C"e6g2|"G"g2d6|"Am"c4e4|"F"f6a2|
+"C"e6g2|"G"g2d6|"Am"c4e4|"F"f2a6|
 V: Ins
 C2E2G2E2|G2B2D2B2|A2C2E2C2|F2A2C2A2|
 V: Vocal
-"C"e6g2|"G"d2g6|"F"c4a4|"C"g4c4|
+"C"e6g2|"G"d2g6|"F"c4f4|"C"g4c4|
 V: Ins
-C2E2G2E2|G2B2D2B2|F2A2C2A2|C2E2G2c2|
+C2E2G2E2|G2B2D2B2|F2A2C2A2|C2E2G2E2|

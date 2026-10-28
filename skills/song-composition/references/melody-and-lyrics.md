@@ -4,16 +4,18 @@ A melody is a line one voice can sing. The words decide its rhythm. Write the me
 
 ## Range
 
-A safe written range for the lead vocal is MIDI 60–82, C4 to A#5. Most voices are comfortable in the lower half. Use the top of the range for a moment, not for a whole section.
+MIDI 60–82, C4 to A#5, is the editor's written-range check for the lead vocal (`SINGABLE_RANGE`). The format does not say how the model places a male or a female voice against the written pitches. Name the voice in the style description, and keep the melody inside the written range. The top is for a moment, not a whole section.
 
 The dialect's check verifies the text, not the vocal range. Check the range yourself, note by note, not just the average. Write the pitches with the dialect's octave spelling (`RULES.md` P1); spelling a note an octave too high is easy to miss.
 
-- **Verse.** Keep the verse around C4–C5. It should sound like speech with a tune.
+- **Verse.** Keep the verse lower than the chorus. A verse can be wider when the words need it; the verse example is an exception: it spans E4–E5, wider than the chorus's C5–A5.
 - **Chorus.** The chorus can sit a third or a fourth higher than the verse. A top note around G5 or A5 is a climax.
 - **Bridge.** A new register helps. Do not make the bridge the highest point unless the final chorus is bigger.
 - **Tessitura.** A note you can reach once is not a note you can hold for sixteen bars. Keep the average in the comfortable part of the range.
 
-If the melody sits outside the range, transpose the whole score or change the key. Do not rewrite the melody from memory in a different octave, because the shape and the words will change with it.
+## Transpose the whole score
+
+If the melody sits outside the range, transpose the score with the editor's `transpose` command (semitones) or `setKey`. Both move every note, chord and key line together. Read the editor skill at `node_modules/@neta-art/score-editor/skills/score-editor/SKILL.md` and its README command list. Keep the melody's shape and intervals; do not rewrite it from memory.
 
 ## Contour
 
@@ -26,7 +28,7 @@ A melody needs a shape, not a sequence of correct notes.
 - **Repeat for urgency.** Two or three notes on the same pitch can push a line forward. Four or more usually sounds stuck.
 - **End with a fall.** A phrase that ends on a lower note sounds closed. A phrase that ends higher sounds open.
 
-The verse example starts on D5, falls to G4, rises to E5 at the start of the second phrase, and closes on G4. The highest note is E5, at the start of the second phrase, and the line falls from there to the tonic.
+The verse example starts on D5, falls to G4, rises to E5 at the start of the second phrase, and closes on G4. The highest note is E5, at the start of the second phrase, and the line settles on the tonic.
 
 ## Rhythm against syllables
 
@@ -42,7 +44,7 @@ One note per syllable is the default. The stressed syllable of a word belongs on
 - Leave time for a breath at the end of a phrase. A rest is the clearest way; a held note that releases on the barline can also work.
 - Vary the note lengths. A line of equal quarter notes sounds like a test, not a song.
 - Hold an open vowel at the end of a phrase. "Home" can last; "and" usually cannot.
-- Do not put a long note on an unstressed final syllable such as "-ing" unless the effect is deliberate.
+- Do not put a long note on an unstressed final syllable such as "-ing" unless the effect is deliberate. The verse example does this in bars 2 and 6; it is a deliberate lift.
 - A syncopation can put a syllable just before the beat, but the stressed syllable should still land on the beat.
 - A melisma is one syllable over two or three notes, usually on a long vowel. It is not extra words. Use it once or twice, not on every line.
 
@@ -65,7 +67,7 @@ Write the words in lines that match the phrases. One line per two, four or eight
 - Keep the line lengths stable within a section. A verse of 8, 8, 8, 8 is easier to sing than 8, 11, 6, 9.
 - End a line on a vowel or a soft consonant when you can. A line that ends on a hard consonant cluster is hard to hold.
 - Rhyme at the ends of phrases. Internal rhyme is a bonus, not a requirement.
-- Chorus lines are shorter and more repeated than verse lines. The words should be easy to catch on one listen.
+- Chorus lines repeat more than verse lines, and the words should be easy to catch on one listen. Length follows the tempo; see the density note below.
 - Avoid tongue-twisters at fast tempos. Consonant clusters cost time.
 
 Counting syllables is not always obvious:
@@ -80,6 +82,14 @@ Counting syllables is not always obvious:
 | don't | 1 | the contraction is one syllable |
 
 Sing the line in the rhythm you plan. If a word needs a note you did not give it, the count is wrong.
+
+## Pickups, density and a second singer
+
+A pickup starts before the first full bar. song2 has no partial bar, so write a leading rest in bar 1 (for example `z2` for a one-beat pickup under `L:1/8`) and start the words after it (`RULES.md` D5, W6).
+
+An upbeat 4-bar phrase often carries 8–12 syllables. A slow ballad can carry 6–8. At 10 syllables in four bars you have room to vary lengths; eight syllables in two bars is dense and tends to force equal quarters. If the words force equal quarters, give the line more bars or change the rhythm.
+
+song2 has one sung line, `Vocal`; `Ins` is instrumental. A second singer cannot be written as a second sung part. Describe a duet in the style description, and listen for whether the model follows it; that is not a promise. Put a countermelody in `Ins`. Lyric labels name sections, not singers.
 
 ## Fit a line to a phrase
 
@@ -99,38 +109,38 @@ The phrase is the unit. A whole-song count can match while one line is short and
 
 | Line | Bars | Syllables | Onsets | Setting |
 | --- | --- | --- | --- | --- |
-| "I have been walking all night long" | 1–4 | 8 | 8 | I/have/been on bar 1; walk-/ing on bar 2; all/night on bar 3; long on bar 4 |
-| "The road is carrying me home" | 5–8 | 8 | 8 | the/road/is on bar 5; car-/ry-/ing on bar 6; me on bar 7; home on bar 8 |
+| "I have been walking all night long" | 1–4 | 8 | 8 | I D5(1); have B4(1); been G4(2); walk- G4(2); ing B4(2); all E4(2); night G4(2); long A4(4) |
+| "The road is carrying me home" | 5–8 | 8 | 8 | the E5(1); road D5(1); is C5(2); car- B4(1); ry- A4(1); ing G4(2); me A4(4); home G4(4) |
 
-The first line ends on A over a D chord, the dominant, so it sounds open. The second line ends on G, the tonic, so it sounds closed.
+The first line ends on A over a D chord, the dominant, so it sounds open. The second line ends on G, the tonic, so it sounds closed. The verse spans E4–E5, an octave. The "-ing" notes in bars 2 and 6 and the held "me" in bar 7 are deliberate.
 
 [assets/chorus-eight-bars.abc](../assets/chorus-eight-bars.abc) has two lines of eight syllables:
 
-| Line | Bars | Syllables | Onsets |
-| --- | --- | --- | --- |
-| "We are the light that never fades" | 1–4 | 8 | 8 |
-| "We are the light that leads you home" | 5–8 | 8 | 8 |
+| Line | Bars | Syllables | Onsets | Setting |
+| --- | --- | --- | --- | --- |
+| "We are the light that never fades" | 1–4 | 8 | 8 | We E5(3); are G5(1); the G5(1); light D5(3); that C5(2); ne- E5(2); ver F5(1); fades A5(3) |
+| "We are the light that leads you home" | 5–8 | 8 | 8 | We E5(3); are G5(1); the D5(1); light G5(3); that C5(2); leads F5(2); you G5(2); home C5(2) |
 
-The chorus opens the second phrase with the same bar as the first, then changes the ending. That is enough repetition to be a hook without being a copy.
+The chorus spans C5–A5. The A5 is on "fades" at the end of the first phrase; the second phrase tops out on G5, so the example has one climax. The chorus opens the second phrase with the same bar as the first, then changes the ending. That is enough repetition to be a hook without being a copy.
 
 [assets/ballad-eight-bars-3-4.abc](../assets/ballad-eight-bars-3-4.abc) has two lines of eight syllables in 3/4:
 
-| Line | Bars | Syllables | Onsets |
-| --- | --- | --- | --- |
-| "Stay with me until the morning" | 1–4 | 8 | 8 |
-| "I will be waiting here tonight" | 5–8 | 8 | 8 |
+| Line | Bars | Syllables | Onsets | Setting |
+| --- | --- | --- | --- | --- |
+| "Stay with me until the morning" | 1–4 | 8 | 8 | Stay A4(1.5); with C4(1.5); me F4(1.5); un- A4(1.5); til E4(1.5); the G4(1.5); morn- D4(1); ing B4(2) |
+| "I will be waiting here tonight" | 5–8 | 8 | 8 | light C4(1.5); I A4(1.5); will A4(1.5); wait- F4(1.5); for B4(2); you D5(1); to E4(1); night A4(2) |
 
-The slow tempo leaves room for the long vowels. The melody stays between F4 and D5, so it is easy to hold for eight bars.
+The ballad spans C4–D5, a ninth. The first phrase ends on B4 over G (open); the second ends on A4 over Am (the root, closed). The "ing" of "morning" is held for two beats as a deliberate hold.
 
 ## Lyrics are not score text
 
-The lyrics are not part of the score text; the dialect's `WRITING.md` explains how a song keeps its words. Keep the words in the generation request or the song project, and use the score only for the melody. Follow `WRITING.md` for what the score text may contain.
+The lyrics are not part of the score text. `WRITING.md` §10 says the words belong to the song project, not the score. In this workflow, keep them in the request's `lyrics` block and, when editing, in the editor's song project (`lyrics` and `lyricLines`). Use the score only for the melody.
 
-When the melody changes, keep the syllable count of each line. When the words change, check the new count against the phrase before you regenerate. Change both only when the brief asks for both.
+A lyric change that changes a line's syllable count needs a matching melody change for that phrase. Otherwise change one thing, unless the brief asks for both.
 
 ## Check the melody and the words
 
-- Is the range inside 60–82?
+- Is the lead inside 60–82?
 - Is there one clear climax?
 - Does the contour rise and fall, rather than wander?
 - Does each line match the onsets of its own phrase?

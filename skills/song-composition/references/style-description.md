@@ -4,27 +4,26 @@ The style description is the production brief for the song2 model. It says what 
 
 ## What the request carries
 
-The song2 request has two required text blocks:
+The request contract is the model declaration in `@neta-art/generation` 0.2.2, at `node_modules/@neta-art/generation/models/song2.yaml`.
 
-- the **style description**, in the `prompt` role;
-- the **lyrics**, in the `lyrics` role.
+The request has two required text blocks and one optional text block:
 
-Depending on the model declaration, the request can also carry:
+- `prompt` role: the style description;
+- `lyrics` role: the words to sing, up to 4,000 characters;
+- `abc` role (optional): the score.
 
-- an input score, in the `abc` role;
-- a score mode, `abc_mode`;
-- a seed;
-- a request to return the score, `return_abc`.
+The optional parameters are:
 
-Read the model's declaration for the exact keys, allowed values and text limits. Keep both texts well inside the cap: a style description of 300–800 characters and lyrics of 1,000–2,000 characters are usually enough. A short, specific brief works better than a long list. Generation is asynchronous and can take several minutes.
+- `abc_mode`: `full` or `melody`. `full` follows the melody and chords; `melody` follows only the melody and rejects chord marks. If omitted, it is inferred from the score, else `full`.
+- `seed`: the random seed, for reproducibility.
+- `return_abc`: also return the score the song used.
+- `abc_continue`: continue the given `abc` as a score opening, then sing it. Requires `abc`; use it only when the brief asks to start from an existing opening.
 
-## Score mode, seed and the returned score
+The declaration gives no character cap for the style description. Keep the brief short enough to read in one pass. Generation is asynchronous and can take several minutes.
 
-`abc_mode` says how much score the model should carry. The editor's project model names the two modes `full` and `melody`; the model declaration gives the values it accepts. Use `full` when the song needs the whole arrangement and `melody` when the score should carry the vocal line.
+## Seed and the returned score
 
-`seed` makes a run repeatable. Keep it when you compare two versions of the same idea. Change it when you want a different take.
-
-`return_abc` asks for the score with the audio. If it is off, the model returns audio only. If the model returns a score, check it with the dialect before you use it.
+Keep `seed` when you compare two versions of the same idea; change it when you want a different take. `return_abc` asks for the score with the audio. If the model returns a score, check it with the dialect before you use it.
 
 ## What goes in the style description
 
@@ -34,7 +33,7 @@ Cover these slots, in this order. Leave out a slot only when it does not matter.
 | --- | --- | --- |
 | Genre and era | The family and the period | "1970s soul ballad", "modern synth pop" |
 | Mood | The feeling, in a few words | "warm, hopeful, a little tired" |
-| Vocal | Lead, range, delivery, harmony, language | "female lead, close and dry in the verse, doubled in the chorus" |
+| Vocal | Voice type, delivery, range, language | "female lead, close and dry, doubled on the chorus" |
 | Instruments | Four to six, with their roles | "piano, muted guitar, warm bass, kick and clap" |
 | Groove | Tempo, meter, feel, drum pattern | "120 BPM, 4/4, straight backbeat, no swing" |
 | Production | Space, texture, era of the mix | "clean and modern, short reverb, no distortion" |
@@ -53,17 +52,17 @@ A useful template:
 
 For a song built on [assets/chorus-eight-bars.abc](../assets/chorus-eight-bars.abc):
 
-> Bright pop in C, 120 BPM, 4/4. Female lead, close in the verse and doubled in the chorus, with a small harmony on the last line. Piano, muted electric guitar, warm bass, kick and clap. The verse is sparse; the chorus opens with a four-on-the-floor kick and a wide piano. Clean, modern production. No rap, no distorted guitar.
+> Bright pop chorus in C, 120 BPM, 4/4. Female lead, close and dry, doubled on the chorus. Piano, muted electric guitar, warm bass, kick and clap. A four-on-the-floor kick and a wide piano. Clean, modern production. No rap, no distorted guitar.
 
 For a song built on [assets/verse-eight-bars.abc](../assets/verse-eight-bars.abc):
 
-> Warm acoustic pop in G, 92 BPM, 4/4. Male lead, intimate and close. Fingerpicked acoustic guitar, soft upright piano, upright bass, light shaker. Keep the arrangement sparse so the words are clear. Analog, roomy production. No drums in the first verse.
+> Warm acoustic pop verse in G, 92 BPM, 4/4. Male lead, intimate and close. Fingerpicked acoustic guitar, soft upright piano, upright bass, light shaker. Sparse, so the words are clear. Analog, roomy production. No drums.
 
 For a song built on [assets/ballad-eight-bars-3-4.abc](../assets/ballad-eight-bars-3-4.abc):
 
-> Slow 3/4 ballad in A minor, 66 BPM. Female lead, breathy and forward, with a low harmony on the last chorus. Grand piano, cello, sustained strings, upright bass, no drums in the verse. Minor harmony with a lift in the last line. Intimate, close production with a long reverb tail. No electronic drums.
+> Slow 3/4 ballad verse in A minor, 66 BPM. Female lead, breathy and forward. Grand piano, cello, sustained strings, upright bass, no drums. Minor harmony, close and intimate. A long reverb tail. No electronic drums.
 
-These are three or four sentences. That is enough for a clear brief.
+These are section sketches. Each describes the section in its score; a longer song can add sections in the same style. Three or four sentences is enough for a clear brief.
 
 ## Keep the brief consistent with the score
 
@@ -87,7 +86,9 @@ If the score is in 3/4 and the brief says "four-on-the-floor", the model gets tw
 - Keep the language consistent. If the song mixes languages, say which lines are in which language in the style description.
 - Do not put chords, score syntax or production notes in the lyrics block. The lyrics are words to sing.
 
-The lyrics are not part of the score text; the dialect's `WRITING.md` explains where the words live. Keep them in this block and in the song project, not in the `.abc`.
+Lyric labels name sections, not singers. A duet is described in the style description; the score has one sung line.
+
+The lyrics are not part of the score text. `WRITING.md` §10 says the words belong to the song project, not the score. In the request, put them in the `lyrics` block; in the editor, in the song project's `lyrics` and `lyricLines`. The score carries the melody only.
 
 ## Iterate on one slot
 
@@ -106,10 +107,11 @@ Keep the seed when you compare two style descriptions. Change the seed only when
 - Does it name a genre and a mood?
 - Does it describe the vocal and at least four instruments?
 - Does it state the tempo and the meter, and do they match the score?
-- Does it say how the energy moves from verse to chorus?
+- Does it say how the energy moves, when the song has more than one section?
 - Does it say what to avoid?
 - Is it free of artist names, file names and platform commands?
-- Is it well under the character cap?
+- Is the style description short enough to read in one pass?
+- Is the lyrics block within 4,000 characters?
 - Does the lyrics block match the phrases in the score?
 - Is the score's own key, tempo and meter the same as the brief?
 

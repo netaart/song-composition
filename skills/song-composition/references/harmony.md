@@ -2,7 +2,7 @@
 
 Chords support the melody and mark the form. Choose the progression and the chord rhythm before you write a second voice.
 
-Use only the chord names the dialect accepts. The grammar is in the dialect's `RULES.md` (C1–C4); this page does not repeat the vocabulary. A name outside it is a reading error, not a style choice.
+Use only the chord names the dialect accepts. The grammar is in the dialect's `RULES.md` (C1–C4); this page does not repeat the vocabulary. A name outside it is a reading error, not a style choice. A rest bar carries its chord as `"F"z8|`, never as `Z` (`RULES.md` C6).
 
 ## Harmonic rhythm
 
@@ -62,7 +62,7 @@ Plan the cadence with the lyric line. A question at the end of a line wants a ha
 The melody and the chord must agree on the strong beat.
 
 - Put a chord tone (root, third or fifth) under the melody when the chord changes.
-- A seventh or a ninth can be a color tone, but it should resolve by step.
+- A seventh can be a color tone, but it should resolve by step. Added-note colours such as a ninth can only be in the melody; the chord vocabulary has no added-note chord.
 - A fourth over a major triad is a suspension. Resolve it down to the third.
 - A major seventh in the melody over a major chord on a strong beat is a strong color. Use it on purpose, not by accident.
 - A tritone between the melody and the chord root on a strong beat sounds unstable. Move the melody to a chord tone or change the chord.
@@ -77,14 +77,14 @@ The third decides major or minor. If the melody has E over a C chord, the chord 
 | Acoustic pop | One per bar | I–V–vi–IV, I–IV–V–I |
 | Piano ballad | One per bar or two bars | I–vi–IV–V, i–VI–III–VII |
 | Rock | One per bar, sometimes two | I–IV–V, i–VI–III–VII |
-| Jazz | Two per bar | ii–V–I, sevenths, altered dominants |
+| Jazz | Two per bar | ii–V–I, 7 and 7sus4 as dominants |
 | Modal folk | One per two bars | i–VII, i–iv |
 
 The style description and the score should name the same harmony. If the style says "jazz", the score should use sevenths and a ii–V–I, not four triads in a row.
 
 ## The second voice
 
-The dialect's `RULES.md` says where a chord may stand (C7). Write the second voice as a line that outlines the harmony instead: an arpeggio, a bass line, a riff, or a countermelody.
+The dialect's `RULES.md` says where a chord may stand (C7). The second voice is instrumental: write a line that outlines the harmony instead, such as an arpeggio, a bass line, a riff, or a countermelody. A countermelody for a duet belongs here; a second singer is not a second `Ins` line (see [melody and lyrics](melody-and-lyrics.md#pickups-density-and-a-second-singer)).
 
 - Keep the second voice below the verse vocal, or in the gaps between vocal phrases.
 - Use chord tones on the strong beats.
@@ -94,7 +94,7 @@ The dialect's `RULES.md` says where a chord may stand (C7). Write the second voi
 
 ## Spell the chords for the key
 
-- In a sharp key, spell the roots with sharps. In a flat key, spell them with flats.
+- In a sharp key, spell the roots with sharps. In a flat key, spell them with flats. C major and A minor use sharps for chromatic notes (`RULES.md` W13).
 - Do not mix `F#` and `Gb` in one progression unless the harmony really changes.
 - Use a slash chord when the bass note is not the root: `C/E`, `G/B`, `F/A`.
 - Use a double accidental only when the spelling requires it.
@@ -141,7 +141,7 @@ Those are chord tones in a steady arpeggio. They outline the harmony without com
 
 The first phrase ends on D, the dominant. The second ends on G, the tonic. That is a half cadence followed by an authentic cadence: the pair sounds like a question and an answer.
 
-[assets/ballad-eight-bars-3-4.abc](../assets/ballad-eight-bars-3-4.abc) uses i–VI–III–VII in A minor:
+[assets/ballad-eight-bars-3-4.abc](../assets/ballad-eight-bars-3-4.abc) uses i–VI–III–VII in bars 1–4 and i–VI–VII–i in bars 5–8:
 
 | Bars | Chords | Strong-beat melody | Chord tone |
 | --- | --- | --- | --- |
@@ -154,7 +154,7 @@ The first phrase ends on D, the dominant. The second ends on G, the tonic. That 
 | 7 | G | B | Third |
 | 8 | Am | E | Fifth |
 
-The last bar returns to the tonic, but the melody ends on the fifth, not the root. That keeps the verse open for the next section.
+Bar 8 puts the fifth (E4) on beat 1 and resolves to the root (A4), so the phrase closes. To leave it open, end on E4.
 
 ## Check the harmony
 

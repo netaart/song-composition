@@ -7,7 +7,7 @@ description: "Compose a song as a song2 `.abc` score and generate it with the so
 
 Compose the song first, then write it as a song2 `.abc` score and generate it with the song2 model. This skill covers the musical choices: form, phrases, key, tempo, meter, melody, lyrics, chords, the style description, and revision.
 
-The score format is not this skill's business. The format authority is `@neta-art/score-dialect-song2`: read its `WRITING.md` before you write text and `RULES.md` when a rule is unclear. Read the text back with the dialect's `parse` and run its `check` before you hand the score over. Editing, drafts and the handoff belong to `@neta-art/score-editor`.
+The score format is not this skill's business. The format authority is `@neta-art/score-dialect-song2`: read its `WRITING.md` before you write text and `RULES.md` when a rule is unclear. Read the text back with the dialect's `parse` and run its `check` (see Check a score) before you hand the score over. Editing, drafts and the handoff belong to `@neta-art/score-editor`.
 
 ## Route
 
@@ -35,12 +35,17 @@ The examples are small complete scores:
 5. Add the chords. Put chord tones on strong beats and choose a chord rhythm for the section.
 6. Write the style description so it agrees with the score: genre, vocal, instruments, tempo, mood.
 7. Read the score with the dialect, run its check, and fix every diagnostic.
-8. Generate. Before a second generation, change one thing and keep everything else.
+8. Generate. Before a second generation, change one thing, unless a lyric change alters a line's syllable count; then change that phrase's melody to match.
+
+## Check a score
+
+Install `@neta-art/score-dialect-song2` and `@neta-art/score-editor` at the same version; this repository checks with 0.4.6. Read the text with `song2Dialect.parse`, then call `song2Dialect.check` on the returned score. `WRITING.md` and `RULES.md` ship in the dialect package, not in this skill.
 
 ## Rules of thumb
 
 - A phrase is usually two, four or eight bars. A section is usually two to four phrases.
-- Keep the verse lower and narrower than the chorus. Save the highest note for one climax.
+- A music line holds one to four bars. A long section is several groups; use the dialect's block shape (`RULES.md` B4, B5, M3).
+- Keep the verse lower than the chorus. A verse can be wider when the words need it; the chorus owns the top.
 - One note per syllable is the default. A melisma is one syllable over several notes, not extra words.
 - Count the note onsets in the phrase, not the notes in the whole song, when you match a lyric line.
 - Change chords on strong beats. Put a chord tone under the melody on the beat where the chord changes.

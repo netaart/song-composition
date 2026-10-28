@@ -16,7 +16,7 @@ Four bars is the default. Two bars is a short answer or a tag. Eight bars is a l
 
 A section should contain a whole number of phrases. A 16-bar verse is four four-bar phrases. It is not three five-bar phrases.
 
-When you turn the plan into a score, read `WRITING.md` for the block shape before you write the first phrase. A four-bar phrase is a natural unit.
+In song2 a music line holds one to four bars. Write an eight-bar section as two groups, each with its own bar count, and check that `Vocal` and `Ins` match in each group when `Ins` is present (`RULES.md` B4, B5, M3, V2). The exact block shape is in `WRITING.md`.
 
 ## Common forms
 
@@ -48,7 +48,7 @@ Cut before you add. If the song feels long, remove one four-bar phrase. If it fe
 ## Sections and their jobs
 
 - **Intro.** Set the tempo, the key and the texture. Four or eight bars. Do not give away the whole chorus.
-- **Verse.** Tell the story. Keep the range narrow and the texture light. End the last verse phrase on a chord that leads forward.
+- **Verse.** Tell the story. Keep the range lower than the chorus and the texture light. End the first verse phrase open. The last phrase leads forward unless the verse stands alone; the example verse closes on G4.
 - **Pre-chorus.** Optional. Four or eight bars. Raise the energy and shorten the chords. End on a dominant or a suspended chord.
 - **Chorus.** The hook. The words and the melody should repeat. The range is higher than the verse. End on the tonic or a strong plagal cadence.
 - **Bridge.** Eight bars is common. Change the harmony, the register or the groove. Prepare the return to the final chorus.
@@ -79,6 +79,10 @@ Count bars, not beats, when you plan a form. Then check the beats in each bar ag
 - A 6/8 bar has six eighth-note beats, felt as two dotted-quarter beats.
 
 A 16-bar section in 4/4 is 64 quarter-note beats. At 120 BPM that is 32 seconds. At 60 BPM it is 64 seconds. The same bar count can be too short or too long at a different tempo, so choose the tempo with the form.
+
+## Writing the bars
+
+`L:1/8` makes one unit an eighth note. A note or rest lasts one of the values in `RULES.md` D1: 1, 2, 3, 4, 6, 8, 12, 16, 24, 32 or 48 units. Under `L:1/8`, a 4/4 bar is 8 units, a 3/4 bar is 6 units, and a 6/8 bar is 6 units. Every bar must add up exactly to its meter (`RULES.md` D5).
 
 ## Worked example
 
