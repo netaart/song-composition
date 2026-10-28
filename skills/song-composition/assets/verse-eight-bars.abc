@@ -1,0 +1,12 @@
+X:1
+T:
+M:4/4
+L:1/8
+Q:1/4=92
+V: Vocal clef=treble name="Vocal Melody" snm="Vocal"
+K:G
+% verse
+V: Vocal
+"G"d2B2G4|"Em"G4B4|"C"E4G4|"D"A8|
+V: Vocal
+"C"e2d2c4|"G"B2A2G4|"D"A8|"G"G8|
