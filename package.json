@@ -1,0 +1,32 @@
+{
+  "name": "@neta-art/song-composition",
+  "version": "0.1.0",
+  "description": "Composition guidance for song2 scores and song2 song generation.",
+  "license": "MIT",
+  "type": "module",
+  "keywords": [
+    "song2",
+    "songwriting",
+    "composition",
+    "score",
+    "agent-skill"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/netaart/song-composition"
+  },
+  "files": [
+    "skills/"
+  ],
+  "scripts": {
+    "check": "node scripts/check-examples.mjs",
+    "check:links": "node scripts/check-links.mjs"
+  },
+  "devDependencies": {
+    "@neta-art/score-dialect-song2": "0.4.6",
+    "@neta-art/score-editor": "0.4.6"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
